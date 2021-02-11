@@ -16,6 +16,7 @@ namespace api
         {
             services.AddSingleton<IDataContext, DataContext>();
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IDocumentService, DocumentService>();
             services.AddControllers();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "demoASP", Version = "v1"});

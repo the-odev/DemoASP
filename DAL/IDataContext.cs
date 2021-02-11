@@ -7,6 +7,8 @@ namespace DAL
     {
          DbSet<User> Users { get; set; }
 
+         DbSet<Document> Documents { get; set; }
+
          int SaveChanges();
     }
 }

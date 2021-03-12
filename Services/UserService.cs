@@ -1,7 +1,7 @@
-using System;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System;
+using System.Linq;
 using DAL;
 using DAL.Entities;
 using Microsoft.Extensions.Logging;

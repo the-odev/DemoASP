@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+using System.Collections;
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -12,8 +14,7 @@ namespace DAL.Entities
         [Required]
         public int UserId { get; set; }
 
-        [Required]
-        [Column()]
+        [Required]        
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }

@@ -1,11 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\DAL\DAL.csproj"/>
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".\Sources\gameofthrone.json" CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
 </Project>

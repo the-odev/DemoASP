@@ -9,6 +9,10 @@ namespace DAL
 
          DbSet<Document> Documents { get; set; }
 
+         DbSet<GameOfThrone> GameOfThrones { get; set; }
+
+        DbSet<Episode> Episodes { get; set; }
+
          int SaveChanges();
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Services.Models;
 
 namespace Services
@@ -9,6 +10,6 @@ namespace Services
 
         ICollection<DocumentDto> GetDocumentsOfUser(int userId);
 
-        ICollection<DocumentDto> GetDocumentsOfType(int documentTypeId);
+        Task<IEnumerable<DocumentDto>> GetDocumentsOfType(int documentTypeId);
     }
 }

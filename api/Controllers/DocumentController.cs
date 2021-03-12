@@ -1,4 +1,7 @@
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Services;
 using Services.Models;
 
@@ -9,6 +12,7 @@ namespace api.Controllers
     public class DocumentController
     {
         private readonly IDocumentService documentService;
+        
 
         public DocumentController(IDocumentService documentService)
         {
@@ -23,6 +27,7 @@ namespace api.Controllers
             return new OkObjectResult(result);
         }
 
+        [Authorize(Roles = "Admin, User", Policy = "AtLeast18")]
         [Route("")]
         [HttpGet]
         public IActionResult GetDocumentOfUser([FromQuery] int userId, [FromQuery] int? documentTypeId = null) {
@@ -33,8 +38,8 @@ namespace api.Controllers
 
         [Route("type")]
         [HttpGet]
-        public IActionResult GetDocumentOfType([FromQuery] int documentTypeId) {
-            var result = this.documentService.GetDocumentsOfType(documentTypeId);
+        public async Task<IActionResult> GetDocumentOfType([FromQuery] int documentTypeId) {
+            var result = await this.documentService.GetDocumentsOfType(documentTypeId);
             return new OkObjectResult(result);
         }
     }

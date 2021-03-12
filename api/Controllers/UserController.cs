@@ -22,6 +22,9 @@ namespace api.Controllers
         public IActionResult GetUser(int userId)
         {
             var user = this.userService.GetUserById(userId);
+            if (user == null) {
+                return NotFound();
+            }
             return new OkObjectResult(user);
         }
 
@@ -29,7 +32,17 @@ namespace api.Controllers
         [HttpGet]
         public IActionResult GetUser([FromQuery] string userName) {
             var user = this.userService.GetUserByUserName(userName);
+            if (user == null) {
+                return NotFound();
+            }
             return new OkObjectResult(user);
+        }
+
+
+        [Route("{userId}/document")]
+        [HttpGet]
+        public IActionResult GetUser2(int userId) {
+            return new BadRequestResult();
         }
 
         [Route("")]
@@ -38,7 +51,15 @@ namespace api.Controllers
         {
             var req = HttpContext.Request;
             var result = this.userService.CreateUser(createUserDto);
-            return new OkResult();
+            return Ok();
+        }
+
+
+        [Route("login")]
+        [HttpPost]
+        public IActionResult LoginUser([FromBody] LoginRequestDto loginRequest) {
+            var result = this.userService.AuthenticateUser(loginRequest);
+            return new OkObjectResult(result);
         }
     }
 }

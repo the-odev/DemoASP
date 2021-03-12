@@ -13,6 +13,10 @@ namespace DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Document> Documents { get; set; }
 
+        public DbSet<GameOfThrone> GameOfThrones { get; set; }
+
+        public DbSet<Episode> Episodes { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=DESKTOP-TU24MN5\SQLEXPRESS;Database=demoASP2;Trusted_Connection=True;");

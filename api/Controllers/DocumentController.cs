@@ -14,10 +14,11 @@ namespace api.Controllers
         private readonly IDocumentService documentService;
         
 
-        public DocumentController(IDocumentService documentService)
+        public DocumentController(IDocumentService documentServcie)
         {
-            this.documentService = documentService;
+            this.documentService = documentServcie;
         }
+
 
         [Route("")]
         [HttpPost]
@@ -30,7 +31,8 @@ namespace api.Controllers
         [Authorize(Roles = "Admin, User", Policy = "AtLeast18")]
         [Route("")]
         [HttpGet]
-        public IActionResult GetDocumentOfUser([FromQuery] int userId, [FromQuery] int? documentTypeId = null) {
+        public IActionResult GetUserDocuments(int userId)
+        {
             var result = this.documentService.GetDocumentsOfUser(userId);
             return new OkObjectResult(result);
         }

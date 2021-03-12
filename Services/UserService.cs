@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using DAL;
 using DAL.Entities;
+using Microsoft.Extensions.Logging;
 using Services.Models;
 using Microsoft.Extensions.Logging;
 using Services.Common;
@@ -19,8 +20,9 @@ namespace Services
 {
     public class UserService : IUserService
     {
-        private IDataContext context;
+
         private readonly ILogger<UserService> logger;
+        private IDataContext context;
 
         private IConfiguration Configuration;
         public UserService(IDataContext context, ILogger<UserService> logger, IConfiguration configuration)
@@ -32,7 +34,7 @@ namespace Services
 
         public UserDto GetUserById(int userId)
         {
-            var user = context.Users.Where(user => user.UserId == userId).FirstOrDefault();
+            var user = context.Users.Where(u => u.UserId == userId).FirstOrDefault();
             if (user == null)
             {
                 return null;

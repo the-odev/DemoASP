@@ -74,7 +74,6 @@ namespace DAL.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("DocumentTypeName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DocumentTypeId");

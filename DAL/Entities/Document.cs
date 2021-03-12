@@ -7,7 +7,6 @@ namespace DAL.Entities
     {
         [Key]
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DocumentId { get; set; }
 
         [Required]
@@ -16,14 +15,15 @@ namespace DAL.Entities
         [Required]
         public int DocumentTypeId { get; set; }
 
+
         [Required]
         public int UserId { get; set; }
+
+        [ForeignKey("DocumentTypeId")]
+        public virtual DocumentType DocumentType { get; set; }
 
 
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
-
-        [ForeignKey("DocumentTypeId")]
-        public virtual DocumentType DocumentType { get; set; }
     }
 }

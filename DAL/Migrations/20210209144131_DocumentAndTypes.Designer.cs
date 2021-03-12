@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210211110719_DocumentAndTypes")]
+    [Migration("20210209144131_DocumentAndTypes")]
     partial class DocumentAndTypes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,7 +55,6 @@ namespace DAL.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("DocumentTypeName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DocumentTypeId");

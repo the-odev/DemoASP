@@ -6,7 +6,7 @@ namespace Services
 {
     public interface IDocumentService
     {
-        string CreateDocument(CreateDocumentDto createDocumentDto);
+         string CreateDocument(CreateDocumentDto createDocumentDto);
 
         ICollection<DocumentDto> GetDocumentsOfUser(int userId);
 

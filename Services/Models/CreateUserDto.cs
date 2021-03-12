@@ -1,3 +1,5 @@
+using System;
+
 namespace Services.Models
 {
     public class CreateUserDto

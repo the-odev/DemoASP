@@ -12,7 +12,7 @@ namespace DAL.Migrations
                 {
                     DocumentTypeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DocumentTypeName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DocumentTypeName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,17 +56,15 @@ namespace DAL.Migrations
                 table: "Documents",
                 column: "UserId");
 
-            migrationBuilder.InsertData(
-table: "DocumentType",
-columns: new[] { "DocumentTypeId", "DocumentTypeName" },
-values: new object[,]
-{
+                migrationBuilder.InsertData(
+                table: "DocumentType",
+                columns: new[] { "DocumentTypeId", "DocumentTypeName" },
+                values: new object[,]
+                {
                     { 1, "Text" },
                     { 2, "Image" },
                     { 3, "Audio" }
-});
-
-
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

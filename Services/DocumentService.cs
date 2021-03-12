@@ -69,11 +69,12 @@ namespace Services
             context.Documents.Add(new Document
             {
                 DocumentName = createDocumentDto.DocumentName,
-                UserId = createDocumentDto.UserId,
-                DocumentTypeId = createDocumentDto.DocumentTypeId
+                DocumentTypeId = createDocumentDto.DocumentTypeId,
+                UserId = createDocumentDto.UserId
             });
             context.SaveChanges();
-            return "The document has been created";
+            return "Document Created";
         }
+
     }
 }

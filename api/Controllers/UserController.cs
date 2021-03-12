@@ -19,13 +19,14 @@ namespace api.Controllers
 
         [Route("{userId}")]
         [HttpGet]
-        public IActionResult GetUser(int userId)
+        public IActionResult GetUserById(int userId)
         {
             var user = this.userService.GetUserById(userId);
             if (user == null) {
                 return NotFound();
             }
             return new OkObjectResult(user);
+
         }
 
         [Route("")]

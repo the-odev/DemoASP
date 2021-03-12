@@ -1,3 +1,5 @@
+using System;
+
 namespace Services.Models
 {
     public class CreateUserDto
@@ -5,5 +7,6 @@ namespace Services.Models
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+        public DateTime? DateOfBirth { get;set;}
     }
 }

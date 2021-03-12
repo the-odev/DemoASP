@@ -5,8 +5,9 @@ namespace DAL
 {
     public interface IDataContext
     {
-         DbSet<User> Users { get; set; }
+        DbSet<User> Users { get; set; }
+        DbSet<Document> Documents { get; set; }
 
-         int SaveChanges();
+        int SaveChanges();
     }
 }

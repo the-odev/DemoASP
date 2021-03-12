@@ -17,21 +17,23 @@ namespace api.Controllers
             this.userService = userService;
         }
 
-
-        // [Route("test")]
-        // [HttpGet]
-        // public IActionResult Test() {
-        //     return new OkObjectResult("This is a test");
-        // }
-
-        [Route("")]
+        [Route("{userId}")]
         [HttpGet]
-        public IActionResult GetUser()
+        public IActionResult GetUserById(int userId)
         {
-            var user = this.userService.GetUser();
+            var user = this.userService.GetUserById(userId);
             return new OkObjectResult(user);
 
         }
+
+        [Route("")]
+        [HttpGet]
+        public IActionResult GetUserByName([FromQuery] string userName)
+        {
+            var user = this.userService.GetUserByName(userName);
+            return new OkObjectResult(user);
+        }
+
 
         [Route("")]
         [HttpPost]
@@ -41,8 +43,5 @@ namespace api.Controllers
             var result = this.userService.CreateUser(createUserDto);
             return new OkResult();
         }
-
-
-
     }
 }

@@ -5,7 +5,8 @@ namespace Services
 {
     public interface IUserService
     {
-         string GetUser();
+         UserDto GetUserById(int userId);
+         UserDto GetUserByName(string userName);
          Boolean CreateUser(CreateUserDto createUserDto);
     }
 }

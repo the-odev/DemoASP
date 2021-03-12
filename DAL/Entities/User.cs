@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace DAL.Entities
 {
@@ -15,8 +16,10 @@ namespace DAL.Entities
         [Column()]
         public string FirstName { get; set; }
         [Required]
-        public string LastName { get; set; }        
+        public string LastName { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
+
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }
